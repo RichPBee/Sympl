@@ -1,0 +1,19 @@
+{
+  "name": "sympl",
+  "version": "1.0.0",
+  "description": "A Sympl Typescript Web Library",
+  "main": "./src/simpl.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RichPBee/Sympl.git"
+  },
+  "author": "ArrPBee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RichPBee/Sympl/issues"
+  },
+  "homepage": "https://github.com/RichPBee/Sympl#readme"
+}
