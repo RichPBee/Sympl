@@ -2,11 +2,11 @@ namespace Sympl.Components
 {
     //Defines the base Sympl component, can be a container or actual element. 
     //Components will be combined to create views.
-    export class BaseComponent implements Sympl.Definitions.IBaseComponent
+    export class BaseComponent implements Definitions.IBaseComponent
     {
         private _element: HTMLElement;
         
-        constructor(id: string, settings: BaseSettings)
+        constructor(id: string, settings: Definitions.IBaseSettings)
         {
             this._element = <HTMLElement>document.getElementById(id);
         }
@@ -14,7 +14,7 @@ namespace Sympl.Components
         public getElement() { return this._element; };
     };
 
-    export interface BaseSettings
+    export interface BaseSettings 
     {
         type: string
         id: string

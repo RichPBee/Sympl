@@ -13,12 +13,12 @@ namespace Sympl.Renderer
             {
                 child.forEach(c => { 
                     parent.getElement().appendChild(c.getElement());
-                })
+                });
             }
             else 
             {
                 parent.getElement().appendChild(child.getElement());   
-            }
+            };
         };
 
         public clearSection<TComponent extends Definitions.IBaseComponent>(section: TComponent) {
@@ -27,11 +27,11 @@ namespace Sympl.Renderer
 
         public removeElement<TComponent extends Definitions.IBaseComponent>(element: TComponent) {
             element.getElement().parentElement?.removeChild(element.getElement());    
-        }
+        };
 
         public updateSection<TComponent extends Definitions.IBaseComponent>(parent: TComponent, child: TComponent) {
             parent.getElement().innerHTML = '';
             this.structurise([parent].concat(child));
-        }
+        };
     }
 }
