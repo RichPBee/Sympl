@@ -8,7 +8,7 @@ namespace Sympl.Components
         
         constructor(id: string, settings: Definitions.IBaseSettings)
         {
-            this._element = <HTMLElement>document.getElementById(id);
+            this._element = 
         }
 
         public getElement() { return this._element; };

@@ -1,6 +1,6 @@
-namespace Sympl.App
+namespace Sympl
 {
-    class App implements Sympl.Definitions.App
+    export class App implements Sympl.Definitions.App
     {
         private _viewController: Definitions.IViewController;
         private _defaultView: Definitions.IView;
@@ -14,6 +14,11 @@ namespace Sympl.App
             this._elementBuilder = new Renderer.ElementBuilder();
             this.load();
         };
+
+        public get ElementBuilder(): Sympl.Definitions.IElementBuilder
+        {
+            return this._elementBuilder;
+        }
 
         load(): void {
             this._viewController.openView(this._defaultView);
