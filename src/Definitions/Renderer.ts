@@ -3,9 +3,9 @@ namespace Sympl.Definitions
 {
     export interface IElementBuilder
     {
-        buildElement<ComponentSettings extends IBaseSettings>(settings: ComponentSettings): IBaseComponent,
+        buildElement<ComponentSettings extends IBaseSettings>(settings: ComponentSettings): HTMLElement,
         //k, v need to be resolved to a stricter type later. (Possible that string, string | number will do, but need to check).
-        resolveStyleType<TComponent extends IBaseComponent>(element: TComponent, settings: Map<string, string|number>): IBaseComponent,
+        resolveStyleType<TComponent extends IBaseComponent>(element: TComponent, settings: Map<string, string|number>): void,
     };
 
     export interface IRenderer

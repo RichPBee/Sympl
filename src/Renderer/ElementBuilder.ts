@@ -1,6 +1,6 @@
 namespace Sympl.Renderer
 {
-    export class ElementBuilder
+    export class ElementBuilder implements Definitions.IElementBuilder
     {
         constructor()
         {
@@ -8,14 +8,14 @@ namespace Sympl.Renderer
         };
 
 
-        public buildElement(settings: Definitions.IBaseSettings): Definitions.IBaseComponent
+        public buildElement(settings: Definitions.IBaseSettings): HTMLElement
         {
-            
-        }
+            let element = document.createElement(settings.type);
+            return element;
+        };
 
-        private resolveStyleType(element: Definitions.IBaseComponent, settings: Map<string, string|number>): Definitions.IBaseComponent 
+        public resolveStyleType(element: Definitions.IBaseComponent, settings: Map<string, string|number>): void 
         {
-
         };
     }
 }
