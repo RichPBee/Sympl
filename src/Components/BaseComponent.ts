@@ -5,10 +5,12 @@ namespace Sympl.Components
     export class BaseComponent implements Definitions.IBaseComponent
     {
         private _element: HTMLElement;
+        private _parent: Sympl.Views.BaseView;
         
-        constructor(id: string, settings: Definitions.IBaseSettings)
+        constructor(parent: Sympl.Views.BaseView, id: string, settings: Definitions.IBaseSettings)
         {
-            this._element = 
+            this._parent = parent;
+            this._element = this._parent.ElementBuilder.buildElement(settings);
         }
 
         public getElement() { return this._element; };

@@ -11,6 +11,7 @@ namespace Sympl.Renderer
         public buildElement(settings: Definitions.IBaseSettings): HTMLElement
         {
             let element = document.createElement(settings.type);
+            element.setAttribute('id', settings.id);
             if (settings.attributes)
             {
                 for (const [k,v] of settings.attributes)
@@ -33,8 +34,24 @@ namespace Sympl.Renderer
             return element;
         };
 
-        private resolveStyleType(element: HTMLElement, settings: Map<string, string>): void 
+        private resolveStyleType(element: HTMLElement, styles: Map<string, string>): void 
         {
+            for (const [k,v] of styles)
+            {
+                this.applyStyle(element, k, v);
+            }
         };
+
+        private applyStyle(element: HTMLElement, k: string, v: string): void
+        {
+            switch(k)
+            {
+                case('justify-content'):
+                    element.style.justifyContent = v;
+                    break;
+                default:
+                    return;
+            };
+        }
     }
 }

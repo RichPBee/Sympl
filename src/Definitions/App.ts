@@ -4,5 +4,7 @@ namespace Sympl.Definitions
     {
         load(): void,
         get ElementBuilder(): IElementBuilder,
+        get ViewController(): IViewController,
+        get Renderer(): IRenderer,
     }
 }

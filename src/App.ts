@@ -15,9 +15,19 @@ namespace Sympl
             this.load();
         };
 
-        public get ElementBuilder(): Sympl.Definitions.IElementBuilder
+        public get ElementBuilder(): Definitions.IElementBuilder
         {
             return this._elementBuilder;
+        }
+
+        public get ViewController(): Definitions.IViewController
+        {
+            return this._viewController;
+        }
+
+        public get Renderer(): Definitions.IRenderer
+        {
+            return this._renderer;
         }
 
         load(): void {

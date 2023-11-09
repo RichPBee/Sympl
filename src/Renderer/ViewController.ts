@@ -16,7 +16,7 @@ namespace Sympl.Renderer
 
         public getCurrentView(): string
         {
-            return this._currentView.getViewName();
+            return this._currentView.name;
         };
 
         public changeView<TView extends Definitions.IView>(oldView: TView, newView: TView): void 
