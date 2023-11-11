@@ -1,7 +1,5 @@
-namespace Sympl.Definitions
+
+export interface IBaseComponent
 {
-    export interface IBaseComponent
-    {
-        getElement(): HTMLElement;   
-    };
-}
+    getElement(): HTMLElement;   
+};

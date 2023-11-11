@@ -1,10 +1,10 @@
-namespace Sympl.Definitions
+
+import { IElementBuilder, IRenderer, IViewController } from "./Renderer";
+
+export interface IApp
 {
-    export interface App
-    {
-        load(): void,
-        get ElementBuilder(): IElementBuilder,
-        get ViewController(): IViewController,
-        get Renderer(): IRenderer,
-    }
+    load(): void,
+    get ElementBuilder(): IElementBuilder,
+    get ViewController(): IViewController,
+    get Renderer(): IRenderer,
 }

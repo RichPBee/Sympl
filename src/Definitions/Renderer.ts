@@ -1,25 +1,26 @@
 /// <reference path="./Components.ts">
-namespace Sympl.Definitions
+import { IBaseSettings } from "./Settings";
+import { IView } from "./View";
+import { BaseComponent } from "../Components/BaseComponent";
+import { BaseView } from "../Views/View";
+export interface IElementBuilder
 {
-    export interface IElementBuilder
-    {
-        buildElement<ComponentSettings extends IBaseSettings>(settings: ComponentSettings): HTMLElement,
-    };
+    buildElement<ComponentSettings extends IBaseSettings>(settings: ComponentSettings): HTMLElement,
+};
 
-    export interface IRenderer
-    {
-        structurise(components: Array<Components.BaseComponent>): Components.BaseComponent,
-        appendSections(parent: Components.BaseComponent | Views.BaseView, child: Components.BaseComponent | Array<Components.BaseComponent>),
-        clearSection(section: Components.BaseComponent),
-        removeElement(element: Components.BaseComponent),
-        updateSection(parent: Components.BaseComponent, child: Components.BaseComponent),
-    };
+export interface IRenderer
+{
+    structurise(components: Array<BaseComponent>): BaseComponent,
+    appendSections(parent: BaseComponent | BaseView, child: BaseComponent | Array<BaseComponent>),
+    clearSection(section: BaseComponent),
+    removeElement(element: BaseComponent),
+    updateSection(parent: BaseComponent, child: BaseComponent),
+};
 
 
-    export interface IViewController
-    {
-        getCurrentView(): string,
-        changeView<TView extends IView>(oldView: TView, newView: TView): void,
-        openView<TView extends IView>(view: TView): void,
-    };
-}
+export interface IViewController
+{
+    getCurrentView(): string,
+    changeView<TView extends IView>(oldView: TView, newView: TView): void,
+    openView<TView extends IView>(view: TView): void,
+};

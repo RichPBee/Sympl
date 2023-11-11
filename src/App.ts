@@ -1,39 +1,51 @@
-namespace Sympl
+import { IViewController, IElementBuilder, IRenderer } from "./Definitions/Renderer";
+import { Renderer } from "./Renderer/Renderer";
+import { ElementBuilder } from "./Renderer/ElementBuilder";
+import { ViewController } from "./Renderer/ViewController";
+import { IView } from "./Definitions/View";
+import { IApp } from "./Definitions/App";
+
+export class SymplApp implements IApp
 {
-    export abstract class App implements Sympl.Definitions.App
+    private _viewController: IViewController;
+    private _defaultView: IView;
+    private _renderer: IRenderer;
+    private _elementBuilder: IElementBuilder
+    private _appContainer: HTMLElement;
+
+    constructor()
     {
-        private _viewController: Definitions.IViewController;
-        private _defaultView: Definitions.IView;
-        private _renderer: Definitions.IRenderer;
-        private _elementBuilder: Definitions.IElementBuilder
-        private _app: HTMLElement;
+        this._viewController = new ViewController(this._defaultView);
+        this._renderer = new Renderer();
+        this._elementBuilder = new ElementBuilder();
+        this._appContainer = document.getElementById('app');
+        //this.load();
+    };
 
-        constructor()
-        {
-            this._viewController = new Renderer.ViewController(this._defaultView);
-            this._renderer = new Renderer.Renderer();
-            this._elementBuilder = new Renderer.ElementBuilder();
-            this._app = document.getElementById('app');
-            this.load();
-        };
+    public get ElementBuilder(): IElementBuilder
+    {
+        return this._elementBuilder;
+    };
 
-        public get ElementBuilder(): Definitions.IElementBuilder
-        {
-            return this._elementBuilder;
-        }
+    public get ViewController(): IViewController
+    {
+        return this._viewController;
+    };
 
-        public get ViewController(): Definitions.IViewController
-        {
-            return this._viewController;
-        }
+    public get Renderer(): IRenderer
+    {
+        return this._renderer;
+    };
 
-        public get Renderer(): Definitions.IRenderer
-        {
-            return this._renderer;
-        }
+    public get AppContainer(): HTMLElement
+    {
+        return this._appContainer;
+    };
 
-        load(): void {
-            this._viewController.openView(this._defaultView);
-        }
-    }   
-}
+    //Not sure if this method should be publicy accessible.
+    public load(): void {
+        console.log('a string');
+        console.log(this.AppContainer);
+        this._viewController.openView(this._defaultView);
+    };
+};

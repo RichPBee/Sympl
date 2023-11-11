@@ -1,18 +1,17 @@
-namespace Sympl.Definitions
-{
-    export interface IBaseSettings
-    {
-        type: string
-        id: string
-        innerText?: string,
-        children?: Array<IBaseComponent>,
-        attributes?: Map<string, string>
-        styles?: Map<string, string>
-    };
+import { IBaseComponent } from "./Component"
 
-    export interface IViewSettings
-    {
-        type: 'div',
-        id: string,
-    }
+export interface IBaseSettings
+{
+    type: string
+    id: string
+    innerText?: string,
+    children?: Array<IBaseComponent>,
+    attributes?: Map<string, string>
+    styles?: Map<string, string>
+};
+
+export interface IViewSettings
+{
+    type: 'div',
+    id: string,
 }

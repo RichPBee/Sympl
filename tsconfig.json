@@ -4,6 +4,6 @@
         "target": "ES6",
         "outDir": "./build",
         "rootDir": "./src",
-        "esModuleInterop": true
+        "esModuleInterop": true,
     },
 }
