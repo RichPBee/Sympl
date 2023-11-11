@@ -1,17 +1,19 @@
 namespace Sympl
 {
-    export class App implements Sympl.Definitions.App
+    export abstract class App implements Sympl.Definitions.App
     {
         private _viewController: Definitions.IViewController;
         private _defaultView: Definitions.IView;
         private _renderer: Definitions.IRenderer;
         private _elementBuilder: Definitions.IElementBuilder
+        private _app: HTMLElement;
 
         constructor()
         {
             this._viewController = new Renderer.ViewController(this._defaultView);
             this._renderer = new Renderer.Renderer();
             this._elementBuilder = new Renderer.ElementBuilder();
+            this._app = document.getElementById('app');
             this.load();
         };
 

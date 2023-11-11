@@ -8,5 +8,11 @@ namespace Sympl.Definitions
         children?: Array<IBaseComponent>,
         attributes?: Map<string, string>
         styles?: Map<string, string>
-    };   
+    };
+
+    export interface IViewSettings
+    {
+        type: 'div',
+        id: string,
+    }
 }

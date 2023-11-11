@@ -8,11 +8,11 @@ namespace Sympl.Definitions
 
     export interface IRenderer
     {
-        structurise<TComponent extends IBaseComponent>(components: Array<TComponent>): TComponent,
-        appendSections<TComponent extends IBaseComponent>(parent: TComponent, child: TComponent | Array<TComponent>),
-        clearSection<TComponent extends IBaseComponent>(section: TComponent),
-        removeElement<TComponent extends IBaseComponent>(element: TComponent),
-        updateSection<TComponent extends IBaseComponent>(parent: TComponent, child: TComponent),
+        structurise(components: Array<Components.BaseComponent>): Components.BaseComponent,
+        appendSections(parent: Components.BaseComponent | Views.BaseView, child: Components.BaseComponent | Array<Components.BaseComponent>),
+        clearSection(section: Components.BaseComponent),
+        removeElement(element: Components.BaseComponent),
+        updateSection(parent: Components.BaseComponent, child: Components.BaseComponent),
     };
 
 

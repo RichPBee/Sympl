@@ -2,13 +2,13 @@ namespace Sympl.Renderer
 {
     export class Renderer implements Sympl.Definitions.IRenderer
     {
-        public structurise<TComponent extends Definitions.IBaseComponent>(components: TComponent[]): TComponent {
+        public structurise(components: Array<Components.BaseComponent>): Components.BaseComponent {
             const parent = components[0];
             this.appendSections(parent, components.slice(1));
             return parent;
         };
 
-        public appendSections<TComponent extends Definitions.IBaseComponent>(parent: TComponent, child: TComponent | TComponent[]) {
+        public appendSections(parent: Components.BaseComponent | Views.BaseView, child: Components.BaseComponent | Array<Components.BaseComponent>) {
             if (Array.isArray(child))
             {
                 child.forEach(c => { 
@@ -21,15 +21,15 @@ namespace Sympl.Renderer
             };
         };
 
-        public clearSection<TComponent extends Definitions.IBaseComponent>(section: TComponent) {
+        public clearSection(section: Components.BaseComponent) {
             section.getElement().innerHTML = '';
         };
 
-        public removeElement<TComponent extends Definitions.IBaseComponent>(element: TComponent) {
+        public removeElement(element: Components.BaseComponent) {
             element.getElement().parentElement?.removeChild(element.getElement());    
         };
 
-        public updateSection<TComponent extends Definitions.IBaseComponent>(parent: TComponent, child: TComponent) {
+        public updateSection(parent: Components.BaseComponent, child: Components.BaseComponent) {
             parent.getElement().innerHTML = '';
             this.structurise([parent].concat(child));
         };
