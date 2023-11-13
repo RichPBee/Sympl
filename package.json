@@ -1,11 +1,13 @@
 {
   "name": "sympl",
   "version": "1.0.0",
+  "types": "./types",
   "description": "A Sympl Typescript Web Library",
-  "main": "./src/simpl.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "build": "tsc && webpack"
   },
   "repository": {
     "type": "git",

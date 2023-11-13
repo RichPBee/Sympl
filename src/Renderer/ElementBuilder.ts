@@ -1,5 +1,4 @@
-import { IElementBuilder } from "../Definitions/Renderer";
-import { IBaseSettings } from "../Definitions/Settings";
+import { IElementBuilder, IBaseSettings } from "../Definitions/Definitions";
 
 export class ElementBuilder implements IElementBuilder
 {

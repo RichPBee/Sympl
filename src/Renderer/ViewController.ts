@@ -1,5 +1,4 @@
-import { IView } from "../Definitions/View";
-import { IViewController } from "../Definitions/Renderer";
+import { IView, IViewController } from "../Definitions/Definitions";
 
 
 export class ViewController implements IViewController
