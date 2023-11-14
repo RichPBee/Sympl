@@ -1,0 +1,1 @@
+export { SymplApp } from './App';

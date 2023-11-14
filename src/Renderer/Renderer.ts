@@ -1,16 +1,14 @@
-import { IRenderer } from "../Definitions/Renderer";
-import { BaseComponent } from "../Components/BaseComponent";
-import { BaseView } from "../Views/View";
+import { IRenderer, IBaseComponent, IView } from "../Definitions/Definitions";
 
 export class Renderer implements IRenderer
 {
-    public structurise(components: Array<BaseComponent>): BaseComponent {
+    public structurise(components: Array<IBaseComponent>): IBaseComponent {
         const parent = components[0];
         this.appendSections(parent, components.slice(1));
         return parent;
     };
 
-    public appendSections(parent: BaseComponent | BaseView, child: BaseComponent | Array<BaseComponent>) {
+    public appendSections(parent: IBaseComponent | IView, child: IBaseComponent | Array<IBaseComponent>) {
         if (Array.isArray(child))
         {
             child.forEach(c => { 
@@ -23,15 +21,15 @@ export class Renderer implements IRenderer
         };
     };
 
-    public clearSection(section: BaseComponent) {
+    public clearSection(section: IBaseComponent) {
         section.getElement().innerHTML = '';
     };
 
-    public removeElement(element: BaseComponent) {
+    public removeElement(element: IBaseComponent) {
         element.getElement().parentElement?.removeChild(element.getElement());    
     };
 
-    public updateSection(parent: BaseComponent, child: BaseComponent) {
+    public updateSection(parent: IBaseComponent, child: IBaseComponent) {
         parent.getElement().innerHTML = '';
         this.structurise([parent].concat(child));
     };

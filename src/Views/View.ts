@@ -1,17 +1,13 @@
-import { SymplApp } from "../App";
-import { BaseComponent } from "../Components/BaseComponent";
-import { IView } from "../Definitions/View";
-import { IViewSettings } from "../Definitions/Settings";
-import { IElementBuilder, IViewController, IRenderer } from "../Definitions/Renderer";
+import { IApp, IBaseComponent, IView,IViewSettings, IElementBuilder, IViewController, IRenderer } from "../Definitions/Definitions";
 
 export class BaseView implements IView
 {   
     readonly name: string;
-    private _parent: SymplApp;
-    private _children: Array<BaseComponent>;
+    private _parent: IApp;
+    private _children: Array<IBaseComponent>;
     private _viewContainer: HTMLElement;
 
-    constructor(parent: SymplApp, name: string, settings: IViewSettings)
+    constructor(parent: IApp, name: string, settings: IViewSettings)
     {
         this._parent = parent;
         this.name = name;
@@ -41,7 +37,7 @@ export class BaseView implements IView
         return this._parent.Renderer;
     };
 
-    public get Children(): Array<BaseComponent>
+    public get Children(): Array<IBaseComponent>
     {
         return this._children;
     };
@@ -51,7 +47,7 @@ export class BaseView implements IView
         return this._viewContainer;
     };
 
-    public addChild(child: BaseComponent): void
+    public addChild(child: IBaseComponent): void
     {
         this._children.push(child);
         this.Renderer.appendSections(this, child);

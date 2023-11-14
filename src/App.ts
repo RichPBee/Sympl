@@ -1,9 +1,7 @@
-import { IViewController, IElementBuilder, IRenderer } from "./Definitions/Renderer";
+import { IViewController, IElementBuilder, IRenderer, IView, IApp } from "./Definitions/Definitions";
 import { Renderer } from "./Renderer/Renderer";
 import { ElementBuilder } from "./Renderer/ElementBuilder";
 import { ViewController } from "./Renderer/ViewController";
-import { IView } from "./Definitions/View";
-import { IApp } from "./Definitions/App";
 
 export class SymplApp implements IApp
 {
