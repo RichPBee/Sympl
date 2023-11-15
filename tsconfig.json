@@ -6,6 +6,9 @@
         "rootDir": "./src",
         "esModuleInterop": true,
         "declaration": true,
-        "declarationDir": "./types"
+        "declarationDir": "./types",
+        "lib": [
+            "ES5", "ES6", "DOM", "DOM.Iterable"
+        ]
     },
 }

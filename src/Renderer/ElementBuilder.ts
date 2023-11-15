@@ -7,16 +7,16 @@ export class ElementBuilder implements IElementBuilder
 
     };
 
-
     public buildElement(settings: IBaseSettings): HTMLElement
     {
         let element = document.createElement(settings.type);
-        element.setAttribute('id', settings.id);
+        element.setAttribute('id', settings.elementID);
+
         if (settings.attributes)
         {
-            for (const [k,v] of settings.attributes)
+            for (const key in settings.attributes)
             {
-                element.setAttribute(`${k}`, v);
+                element.setAttribute(key, settings.attributes[key]);
             }
         }
 
@@ -34,11 +34,11 @@ export class ElementBuilder implements IElementBuilder
         return element;
     };
 
-    private resolveStyleType(element: HTMLElement, styles: Map<string, string>): void 
+    protected resolveStyleType(element: HTMLElement, styles: Record<string, string>): void 
     {
-        for (const [k,v] of styles)
+        for (const key in styles)
         {
-            this.applyStyle(element, k, v);
+            this.applyStyle(element, key, styles[key]);
         }
     };
 

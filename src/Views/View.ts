@@ -3,19 +3,22 @@ import { IApp, IBaseComponent, IView,IViewSettings, IElementBuilder, IViewContro
 export class BaseView implements IView
 {   
     readonly name: string;
-    private _parent: IApp;
-    private _children: Array<IBaseComponent>;
-    private _viewContainer: HTMLElement;
+    protected _parent: IApp;
+    protected _children: Array<IBaseComponent>;
+    protected _viewContainer: HTMLElement;
 
     constructor(parent: IApp, name: string, settings: IViewSettings)
     {
         this._parent = parent;
         this.name = name;
-        this._viewContainer =  this._parent.ElementBuilder.buildElement(settings);
+        this._viewContainer = this._parent.ElementBuilder.buildElement(settings);
+        this.ViewController.add(this.name, this);
+        this._children = [];
     };
 
     onOpen(): void {
         this._parent.AppContainer.appendChild(this._viewContainer);
+        this.createComponents();
     };
 
     onClose(): void {
@@ -52,4 +55,6 @@ export class BaseView implements IView
         this._children.push(child);
         this.Renderer.appendSections(this, child);
     };
+
+    protected createComponents(): void {} 
 };

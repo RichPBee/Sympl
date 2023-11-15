@@ -1,9 +1,9 @@
 import { IApp, IBaseComponent, IView, IViewSettings, IElementBuilder, IViewController, IRenderer } from "../Definitions/Definitions";
 export declare class BaseView implements IView {
     readonly name: string;
-    private _parent;
-    private _children;
-    private _viewContainer;
+    protected _parent: IApp;
+    protected _children: Array<IBaseComponent>;
+    protected _viewContainer: HTMLElement;
     constructor(parent: IApp, name: string, settings: IViewSettings);
     onOpen(): void;
     onClose(): void;
@@ -13,4 +13,5 @@ export declare class BaseView implements IView {
     get Children(): Array<IBaseComponent>;
     getElement(): HTMLElement;
     addChild(child: IBaseComponent): void;
+    protected createComponents(): void;
 }

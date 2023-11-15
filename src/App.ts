@@ -2,14 +2,15 @@ import { IViewController, IElementBuilder, IRenderer, IView, IApp } from "./Defi
 import { Renderer } from "./Renderer/Renderer";
 import { ElementBuilder } from "./Renderer/ElementBuilder";
 import { ViewController } from "./Renderer/ViewController";
+import { BaseView } from "./Views/View";
 
 export class SymplApp implements IApp
 {
-    private _viewController: IViewController;
-    private _defaultView: IView;
-    private _renderer: IRenderer;
-    private _elementBuilder: IElementBuilder
-    private _appContainer: HTMLElement;
+    protected _viewController: ViewController;
+    protected _defaultView: BaseView;
+    protected _renderer: Renderer;
+    protected _elementBuilder: ElementBuilder;
+    protected _appContainer: HTMLElement;
 
     constructor()
     {
@@ -20,17 +21,17 @@ export class SymplApp implements IApp
         //this.load();
     };
 
-    public get ElementBuilder(): IElementBuilder
+    public get ElementBuilder(): ElementBuilder
     {
         return this._elementBuilder;
     };
 
-    public get ViewController(): IViewController
+    public get ViewController(): ViewController
     {
         return this._viewController;
     };
 
-    public get Renderer(): IRenderer
+    public get Renderer(): Renderer
     {
         return this._renderer;
     };
@@ -42,8 +43,6 @@ export class SymplApp implements IApp
 
     //Not sure if this method should be publicy accessible.
     public load(): void {
-        console.log('a string');
-        console.log(this.AppContainer);
         this._viewController.openView(this._defaultView);
     };
 };

@@ -4,15 +4,17 @@ import { IBaseComponent, IBaseSettings, IView } from "../Definitions/Definitions
 
 export class BaseComponent implements IBaseComponent
 {
-    private _element: HTMLElement;
-    private _parent: IView;
-    private _children: Array<BaseComponent>
+    protected _element: HTMLElement;
+    protected _parent: IView;
+    protected _children: Array<BaseComponent>;
+    protected _componentID: string;
     
-    constructor(parent: IView, id: string, settings: IBaseSettings)
+    constructor(parent: IView, componentID: string, settings: IBaseSettings)
     {
         this._parent = parent;
         this._element = this._parent.ElementBuilder.buildElement(settings);
         this._parent.addChild(this);
+        this._componentID = componentID;
     }
 
     public getElement() { return this._element; };

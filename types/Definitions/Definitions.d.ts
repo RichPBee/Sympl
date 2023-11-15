@@ -20,20 +20,26 @@ export interface IRenderer {
 }
 export interface IViewController {
     getCurrentView(): string;
-    changeView<TView extends IView>(oldView: TView, newView: TView): void;
+    changeView(oldView: IView, newView: IView): void;
     openView<TView extends IView>(view: TView): void;
+    getView(viewName: string): IView;
+    add(viewName: string, view: IView): void;
 }
 export interface IBaseSettings {
     type: string;
-    id: string;
+    elementID: string;
     innerText?: string;
     children?: Array<IBaseComponent>;
-    attributes?: Map<string, string>;
-    styles?: Map<string, string>;
+    attributes?: Record<string, string>;
+    styles?: Record<string, string>;
 }
 export interface IViewSettings {
     type: 'div';
-    id: string;
+    elementID: string;
+}
+export interface IButtonSettings extends IBaseSettings {
+    type: 'button';
+    elementID: string;
 }
 export interface IView {
     readonly name: string;

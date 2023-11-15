@@ -1,14 +1,18 @@
-import { IViewController, IElementBuilder, IRenderer, IApp } from "./Definitions/Definitions";
+import { IApp } from "./Definitions/Definitions";
+import { Renderer } from "./Renderer/Renderer";
+import { ElementBuilder } from "./Renderer/ElementBuilder";
+import { ViewController } from "./Renderer/ViewController";
+import { BaseView } from "./Views/View";
 export declare class SymplApp implements IApp {
-    private _viewController;
-    private _defaultView;
-    private _renderer;
-    private _elementBuilder;
-    private _appContainer;
+    protected _viewController: ViewController;
+    protected _defaultView: BaseView;
+    protected _renderer: Renderer;
+    protected _elementBuilder: ElementBuilder;
+    protected _appContainer: HTMLElement;
     constructor();
-    get ElementBuilder(): IElementBuilder;
-    get ViewController(): IViewController;
-    get Renderer(): IRenderer;
+    get ElementBuilder(): ElementBuilder;
+    get ViewController(): ViewController;
+    get Renderer(): Renderer;
     get AppContainer(): HTMLElement;
     load(): void;
 }

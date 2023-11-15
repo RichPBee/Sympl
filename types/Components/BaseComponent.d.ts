@@ -1,9 +1,10 @@
 import { IBaseComponent, IBaseSettings, IView } from "../Definitions/Definitions";
 export declare class BaseComponent implements IBaseComponent {
-    private _element;
-    private _parent;
-    private _children;
-    constructor(parent: IView, id: string, settings: IBaseSettings);
+    protected _element: HTMLElement;
+    protected _parent: IView;
+    protected _children: Array<BaseComponent>;
+    protected _componentID: string;
+    constructor(parent: IView, componentID: string, settings: IBaseSettings);
     getElement(): HTMLElement;
     addChild(child: BaseComponent): void;
 }
