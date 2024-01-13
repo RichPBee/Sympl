@@ -1,4 +1,4 @@
-Sympl -- A very (very) Simple (ha) component library with a basic view controller.
+Sympl -- A very simple component library with a basic view controller.
 
 Requirements:
 
