@@ -14,6 +14,9 @@ Using the BaseComponent and BaseView class, you can then create modular componen
 required. This way, we can (for example) create a single Button component, and re-use that across as many views
 as it is needed. 
 
+In order to use the app, run the command 'npm run build' to compile all the parts, from there you can load the index.html
+file however you want, whether that is through VSCode live server, or any other method is up to the user.
+
 ***This is mainly intended for personal use and practice developing using TypeScript, over time, I intend to add
 new components and functionality, but the library is unlikely to be useful to others in a production environment, 
 due to aformentioned intended use cases. 
